@@ -1504,6 +1504,14 @@ class wpdb {
 	 * @return bool True with a successful connection, false on failure.
 	 */
 	public function db_connect( $allow_bail = true ) {
+
+		/*
+		* Set the MySQLi error reporting off because WordPress handles its own.
+		* This is due to the default value change from `MYSQLI_REPORT_OFF`
+		* to `MYSQLI_REPORT_ERROR|MYSQLI_REPORT_STRICT` in PHP 8.1.
+		*/
+		mysqli_report( MYSQLI_REPORT_OFF );
+
 		$this->is_mysql = true;
 
 		/*
@@ -2830,7 +2838,7 @@ class wpdb {
 		}
 
 		// We don't need to check the collation for queries that don't read data.
-		$query = ltrim( $query, "\r\n\t (" );
+		$query = ltrim( $query ?? '', "\r\n\t (" );
 		if ( preg_match( '/^(?:SHOW|DESCRIBE|DESC|EXPLAIN|CREATE)\s/i', $query ) ) {
 			return true;
 		}
