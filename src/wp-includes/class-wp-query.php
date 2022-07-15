@@ -3722,7 +3722,7 @@ class WP_Query {
 	public function is_page( $page = '' ) {
 		if ( !$this->is_page )
 			return false;
-
+		
 		if ( empty( $page ) )
 			return true;
 

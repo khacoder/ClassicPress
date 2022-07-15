@@ -1313,6 +1313,10 @@ function wp_kses_no_null( $string, $options = null ) {
 		$options = array( 'slash_zero' => 'remove' );
 	}
 
+	if (null === $string ) {
+		$string = '';
+	}
+
 	$string = preg_replace( '/[\x00-\x08\x0B\x0C\x0E-\x1F]/', '', $string );
 	if ( 'remove' == $options['slash_zero'] ) {
 		$string = preg_replace( '/\\\\+0+/', '', $string );

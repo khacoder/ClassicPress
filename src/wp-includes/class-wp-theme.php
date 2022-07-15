@@ -405,7 +405,8 @@ final class WP_Theme implements ArrayAccess {
 	 * @param mixed $offset
 	 * @param mixed $value
 	 */
-	public function offsetSet( $offset, mixed $value ): void {}
+	#[\ReturnTypeWillChange]
+	public function offsetSet( $offset, $value ) {}
 
 	/**
 	 * Method to implement ArrayAccess for keys formerly returned by get_themes()
@@ -414,7 +415,8 @@ final class WP_Theme implements ArrayAccess {
 	 *
 	 * @param mixed $offset
 	 */
-	public function offsetUnset( mixed $offset ): void {}
+	#[\ReturnTypeWillChange]
+	public function offsetUnset( $offset ) {}
 
 	/**
 	 * Method to implement ArrayAccess for keys formerly returned by get_themes()
@@ -426,7 +428,8 @@ final class WP_Theme implements ArrayAccess {
 	 * @param mixed $offset
 	 * @return bool
 	 */
-	public function offsetExists( $offset ): bool {
+	#[\ReturnTypeWillChange]
+	public function offsetExists( $offset ) {
 		error_log('yabba');
 		static $keys = array(
 			'Name', 'Version', 'Status', 'Title', 'Author', 'Author Name', 'Author URI', 'Description',
@@ -452,7 +455,8 @@ final class WP_Theme implements ArrayAccess {
 	 * @param mixed $offset
 	 * @return mixed
 	 */
-	public function offsetGet( $offset ): mixed {
+	#[\ReturnTypeWillChange]
+	public function offsetGet( $offset ) {
 		switch ( $offset ) {
 			case 'Name' :
 			case 'Title' :

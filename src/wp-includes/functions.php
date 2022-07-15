@@ -4420,12 +4420,12 @@ function validate_file( $file, $allowed_files = array() ) {
 	}
 
 	// More than one occurence of `../` is not allowed:
-	if ( preg_match_all( '#\.\./#', $file, $matches, PREG_SET_ORDER ) && ( count( $matches ) > 1 ) ) {
+	if ( preg_match_all( '#\.\./#', $file ?? '', $matches, PREG_SET_ORDER ) && ( count( $matches ) > 1 ) ) {
 		return 1;
 	}
 
 	// `../` which does not occur at the end of the path is not allowed:
-	if ( false !== strpos( $file, '../' ) && '../' !== mb_substr( $file, -3, 3 ) ) {
+	if ( false !== strpos( $file ?? '', '../' ) && '../' !== mb_substr( $file, -3, 3 ) ) {
 		return 1;
 	}
 
@@ -4434,7 +4434,7 @@ function validate_file( $file, $allowed_files = array() ) {
 		return 3;
 
 	// Absolute Windows drive paths are not allowed:
-	if (':' == substr( $file, 1, 1 ) )
+	if (':' == substr( $file ?? '', 1, 1 ) )
 		return 2;
 
 	return 0;

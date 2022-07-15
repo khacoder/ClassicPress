@@ -4,6 +4,7 @@
  * @package ClassicPress
  */
 if ( defined('WP_USE_THEMES') && WP_USE_THEMES )
+
 	/**
 	 * Fires before determining which template to load.
 	 *
@@ -63,6 +64,9 @@ if ( defined('WP_USE_THEMES') && WP_USE_THEMES ) :
 	else :
 		$template = get_index_template();
 	endif;
+error_log($template);
+	//$template = 'C:\xampp\htdocs\ClassicPress\src/wp-content/themes/canuck-cp/template-home.php';
+
 	/**
 	 * Filters the path of the current template before including it.
 	 *
