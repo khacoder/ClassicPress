@@ -143,7 +143,6 @@ require( ABSPATH . WPINC . '/class-wp-role.php' );
 require( ABSPATH . WPINC . '/class-wp-user.php' );
 require( ABSPATH . WPINC . '/class-wp-query.php' );
 require( ABSPATH . WPINC . '/query.php' );
-error_log(is_front_page());
 require( ABSPATH . WPINC . '/date.php' );
 require( ABSPATH . WPINC . '/theme.php' );
 require( ABSPATH . WPINC . '/class-wp-theme.php' );

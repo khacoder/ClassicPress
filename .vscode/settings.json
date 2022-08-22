@@ -1,4 +1,4 @@
 {
 	"phpcs.standard": "WordPress,PHPCompatibility",
-	"phpSniffer.standard": "WordPress"
+	"phpSniffer.standard": "WordPress",
 }
